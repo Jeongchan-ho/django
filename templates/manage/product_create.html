@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>상품 등록</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="product_code">상품코드:</label>
+      <input type="text" class="form-control" id="product_code" name="product_code">
+    </div>
+    <div class="form-group">
+      <label for="product_name">상품명:</label>
+      <input type="text" class="form-control" id="product_name" name="product_name">
+    </div>
+      <div class="form-group">
+          <label for="description">상품 설명</label>
+          <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+      </div>
+    <div class="form-group">
+      <label for="price">가격:</label>
+      <input type="number" class="form-control" id="price" name="price">
+    </div>
+    <div class="form-group">
+      <label for="size">사이즈:</label>
+      <input type="text" class="form-control" id="size" name="size">
+    </div>
+    <button type="submit" class="btn btn-default">등록</button>
+  </form>
+</div>
+{% endblock %}

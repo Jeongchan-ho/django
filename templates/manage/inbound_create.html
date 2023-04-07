@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Inbound Create</h1>
+  <form method="POST" action="{% url 'inbound_create' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="product_code">상품 코드:</label>
+      <input type="text" class="form-control" id="product_code" name="product_code">
+    </div>
+    <div class="form-group">
+      <label for="size">사이즈:</label>
+      <input type="text" class="form-control" id="size" name="size">
+    </div>
+    <div class="form-group">
+      <label for="quantity">수량:</label>
+      <input type="number" class="form-control" id="quantity" name="quantity" min="1">
+    </div>
+    <button type="submit" class="btn btn-primary">추가</button>
+  </form>
+  <hr>
+  <h3>Added Items:</h3>
+  <ul>
+    {% for item in added_items %}
+    <li>Product Code: {{ item.product_code }}, Size: {{ item.size }}, Quantity: {{ item.quantity }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

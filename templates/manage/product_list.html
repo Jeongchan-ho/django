@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Product List</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>상품코드</th>
+          <th>상품명</th>
+          <th>상품설명</th>
+          <th>사이즈</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.size }}</td>
+            <td>{{ product.price }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

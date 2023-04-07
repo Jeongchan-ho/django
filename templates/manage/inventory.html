@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Inventory</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Inbound Stock</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Code</th>
+            <th>Size</th>
+            <th>Quantity</th>
+            <th>Total Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for inbound in inbound_stock %}
+          <tr>
+            <td>{{ inbound.product_code }}</td>
+            <td>{{ inbound.size }}</td>
+            <td>{{ inbound.quantity }}</td>
+            <td>{{ inbound.total_stock }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h3>Outbound Stock</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Code</th>
+            <th>Size</th>
+            <th>Quantity</th>
+            <th>Total Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for outbound in outbound_stock %}
+          <tr>
+            <td>{{ outbound.product_code }}</td>
+            <td>{{ outbound.size }}</td>
+            <td>{{ outbound.quantity }}</td>
+            <td>{{ outbound.total_stock }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
